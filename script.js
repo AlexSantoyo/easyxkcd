@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        xkcd
 // @namespace   www.xkcd.com/
-// @include     /^https?:\/\/(www\.)?(explain)?xkcd\.com.*$/
+// @include     /^https?:\/\/(www\.)?(3d\.)?(explain)?xkcd\.com.*$/
 // @version     1.04
 // @grant       none
 // @require     https://code.jquery.com/jquery-3.1.1.min.js
@@ -30,6 +30,12 @@ function doc_keyUp(e) {
                 offset = elOffset;
             }
             $.smoothScroll({ speed: 700 }, offset);
+            break;
+        case "KeyD":
+            if($("ul.comicNav").length)
+            {
+                window.location.href = "https://3d.xkcd.com/"+query;
+            }
             break;
         case "KeyF":
             if($(".mw-redirect").length){
